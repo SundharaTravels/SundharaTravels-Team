@@ -210,6 +210,13 @@
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+      <script>
+         document.getElementById("form-submit").addEventListener("click", function(){
+          fwcrm.trackCustomEvent("Form Submitted", {
+          	"email": document.getElementById("email")
+          });
+        });
+      </script>
 
   </body>
 </html>
