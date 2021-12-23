@@ -332,6 +332,51 @@
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+      
+   <style>
+     #custom_chat_button {
+       position: fixed;
+       bottom: 10px;
+       right: 10px;
+       height: 80px;
+       background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngfind.com%2Fmpng%2FbiRmx_suitcase-vector-art-image-suitcase-clipart-transparent-background%2F&psig=AOvVaw3DnxOrwj0f7TTfxossIMn9&ust=1640285777676000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNiQmPiK-PQCFQAAAAAdAAAAABAt)no-repeat;
+       width: 80px;
+       background-size: 100%;
+       z-index: 99999999999;
+       cursor: pointer;
+     }
+   </style>
+   <div id="custom_chat_button" onClick="window.fcWidget.open();"></div>
+   <script>
+     function initFreshChat() {
+       window.fcWidget.init({
+         token:"b6768b62-65ef-45df-87e1-501ede614519",
+         host: "https://wchat.freshchat.com",
+         "config": {
+           "headerProperty": {
+             "hideChatButton": true,
+              "direction": "rtl"
+           }
+         }
+       });
+       window.fcWidget.on("widget:opened", function(resp) {
+         console.log('Widget Opened');
+         document.getElementById('custom_chat_button').style.visibility = "hidden"
+       });
+       window.fcWidget.on("widget:closed", function(resp) {
+         console.log('Widget Closed');
+         document.getElementById('custom_chat_button').style.visibility = "visible"
+       });
+     }
+     function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+   </script (edited) 
+
+
+
+
+
+
+
 
   </body>
 </html>
